@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react"
 import ChatArea from "@/components/ChatArea"
-//import Options from "@/components/Options"
+import Options from "@/components/Options"
 import InputBar from "@/components/InputBar"
 
 export default function Home() {
@@ -10,10 +10,19 @@ export default function Home() {
         { id: 2, sender: "bot", text: "IDENTIFY WHO SAID THIS", hint: true },
     ])
 
+    const handleSend = (text) => {
+        setMessages(prev => [...prev, {
+            id: Date.now(),
+            sender: "user",
+            text: text
+        }])
+    }
+
     return (
-        <main className="flex flex-col" style={{height: "calc(100vh - 88px)"}}>
+        <main className="flex flex-col flex-1 min-h-0">
             <ChatArea messages={messages} />
-            <InputBar />
+            <Options />
+            <InputBar onSend={handleSend} />
         </main>
     )
 }
