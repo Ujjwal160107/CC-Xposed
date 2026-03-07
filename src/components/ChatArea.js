@@ -5,9 +5,6 @@ function BotMessage({ text, hint, time }) {
         <div className="flex flex-col items-start gap-1 mb-4">
             <div className="rounded-2xl rounded-tl-sm max-w-xs" style={{backgroundColor: "#252420", padding: "16px"}}>
                 <p className="text-sm tracking-widest" style={{color: "#DFD6B1"}}>{text}</p>
-                {hint && (
-                    <p className="text-sm tracking-widest mt-1" style={{color: "#EFCB47"}}>HINT</p>
-                )}
             </div>
             <span className="text-xs tracking-widest ml-1" style={{color: "#DFD6B1"}}>
                 <span style={{color: "#DCB117"}}>???</span> · {time} · <span style={{color: "#DCB117"}}>delivered</span>
